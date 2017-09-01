@@ -89,6 +89,9 @@
                                         <state key="normal" title="REMOVE ADS">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="removeAdsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zeg-YQ-kkF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,6 +129,7 @@
                     </view>
                     <connections>
                         <outlet property="bannerView" destination="YbI-A4-c0A" id="b7D-jO-Pxk"/>
+                        <outlet property="removeAdsBtn" destination="JCb-ZI-Wfs" id="xlj-RP-nqH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
