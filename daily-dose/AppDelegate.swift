@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9912048831163673~1082260732")
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
         GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511")
+        
+        // Initlialize the purchase manager
+        PurchaseManager.instance.fetchProducts()
         return true
     }
 
