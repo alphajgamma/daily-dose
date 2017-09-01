@@ -17,7 +17,15 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAds()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func setupAds() {
         if UserDefaults.standard.bool(forKey: PurchaseManager.instance.IAP_REMOVE_ADS) {
             removeAdsBtn.removeFromSuperview()
             bannerView.removeFromSuperview()
@@ -31,13 +39,15 @@ class HomeVC: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func restoreBtnPressed(_ sender: Any) {
+        PurchaseManager.instance.restorePurchases { success in
+            if success {
+                self.setupAds()
+            }
+        }
     }
-
+    
     @IBAction func removeAdsPressed(_ sender: Any) {
-        
         // Show loading spinner - ActivityIndicator
         PurchaseManager.instance.purchaseRemoveAds { success in
             // Dismiss spinner
@@ -48,7 +58,6 @@ class HomeVC: UIViewController {
                 // Show message to the user
             }
         }
-        
     }
     
 }
